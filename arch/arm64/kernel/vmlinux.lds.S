@@ -181,6 +181,15 @@ SECTIONS
 
 	PERCPU_SECTION(L1_CACHE_BYTES)
 
+	. = ALIGN(4);
+	.altinstructions : {
+		__alt_instructions = .;
+		KEEP(*(.altinstructions))
+		__alt_instructions_end = .;
+	}
+	.altinstr_replacement : {
+		KEEP(*(.altinstr_replacement))
+	}
 	.rela.dyn : ALIGN(8) {
 		*(.rela .rela*)
 	}
