@@ -3,6 +3,7 @@
  * key management facility for FS encryption support.
  *
  * Copyright (C) 2015, Google, Inc.
+ * Copyright (C) 2020 XiaoMi, Inc.
  *
  * This contains encryption key functions.
  *
@@ -646,6 +647,7 @@ int fscrypt_get_encryption_info(struct inode *inode)
 		res = init_crypt_info_for_ice(crypt_info, inode, raw_key);
 		if (res)
 			goto out;
+		memcpy(crypt_info->ci_raw_key, raw_key, size);
 		crypt_info->key_size = size;
 	}
 
