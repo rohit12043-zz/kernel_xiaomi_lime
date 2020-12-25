@@ -819,8 +819,6 @@ info_retry:
 		fw_version = ts->fw_ver;
 		snprintf(nvt_info_summary, sizeof(nvt_info_summary), "%s:%d\n", NVT_VENDOR_INFO, fw_version);
 		NVT_LOG("%s", nvt_info_summary);
-		hq_regiser_hw_info(HWID_CTP, nvt_info_summary);
-		hq_regiser_hw_info(HWID_LCM, "incell,vendor:tianma,IC:nt36672a(novatek)");
 		ret = 0;
 	}
 
